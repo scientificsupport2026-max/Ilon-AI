@@ -1,23 +1,3 @@
-import sys
-import subprocess
-
-# =======================================================
-# KUTUBXONALARNI AVTOMATIK TEKSHIRISH VA O'RNATISH
-# =======================================================
-REQUIRED_PACKAGES = {
-    "streamlit": "streamlit",
-    "google.genai": "google-genai",
-    "pydantic": "pydantic",
-    "PIL": "pillow"
-}
-
-for module_name, pip_name in REQUIRED_PACKAGES.items():
-    try:
-        __import__(module_name)
-    except ImportError:
-        print(f"📦 {pip_name} kutubxonasi topilmadi. Avtomatik o'rnatilmoqda...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", pip_name])
-
 import streamlit as st
 from google import genai
 from google.genai import types
